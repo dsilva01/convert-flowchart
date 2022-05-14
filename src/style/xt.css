@@ -1,0 +1,28 @@
+.xterm-viewport {
+  width: 100%;
+  height: 100%;
+}
+.xterm-scroll-area {
+  width: 100%;
+  height: 100%;
+}
+.xterm-screen {
+  width: 100%;
+  height: 100%;
+}
+.xterm-text-layer {
+  width: 100%;
+  height: 100%;
+}
+.xterm-selection-layer {
+  width: 100%;
+  height: 100%;
+}
+.xterm-link-layer {
+  width: 100%;
+  height: 100%;
+}
+.xterm-cursor-layer {
+  width: 100%;
+  height: 100%;
+}
