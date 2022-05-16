@@ -1,6 +1,8 @@
 import React from 'react';
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
+// import html2canvas from 'html2canvas';
+
 import initialNodes from "../utils/nodes";
 import initialEdges from "../utils/edges";
 
@@ -12,7 +14,7 @@ export const Navbar = (props) => {
       nodes: props.nodes,
       edges: props.edges,
     }
-        dn.href = `data:application/json;charset=utf-8,${JSON.stringify(elements)}`
+        dn.href = `data:application/json;charset=utf-8,${JSON.stringify(elements, null, 1)}`
         dn.download = `fluxograma ${Date.now()}`;
         dn.click();
   }
@@ -21,6 +23,17 @@ export const Navbar = (props) => {
     let up = document.getElementById("upload_fl");
     up.style = "display: flex";
     up.click();
+  }
+
+  const handleImage = () => {
+    props.image(true);
+  //   html2canvas(document.querySelector('.react-flow')).then(canvas => {
+  //   // html2canvas(document.querySelector('.asa')).then(canvas => {
+  //     document.body.appendChild(canvas);
+  // });
+    // let up = document.getElementById("upload_fl");
+    // up.style = "display: flex";
+    // up.click();
   }
 
   const handleChange = (e) => {
@@ -56,7 +69,9 @@ export const Navbar = (props) => {
       <div>
         <Nav variant="pills" activeKey="1">
           <NavDropdown title="Ficheiro" id="nav-dropdown">
-            <NavDropdown.Item onClick={() => { handleClean() }}>Novo</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => { handleClean() }}>
+              Novo
+            </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item onClick={() => { handleClick() }}>
               Download
@@ -65,6 +80,9 @@ export const Navbar = (props) => {
               Upload
               <div>
               </div>
+            </NavDropdown.Item>
+            <NavDropdown.Item onClick={() => { handleImage() }}>
+              PNG
             </NavDropdown.Item>
             <input id="upload_fl" type="file" hidden onChange={(e) => { handleChange(e) }} />
           </NavDropdown>

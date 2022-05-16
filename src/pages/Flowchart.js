@@ -10,6 +10,7 @@ import { Code } from '../components/Code';
 import { result } from '../utils/generateCode';
 import initialNodes from "../utils/nodes";
 import initialEdges from "../utils/edges";
+import { Image } from '../components/Image';
 
 const App = () => {
 
@@ -17,8 +18,10 @@ const App = () => {
   const [edges, setEdges] = useState([]);
   const [clique, setClique] = useState(false);
   const [cancelar, setCancelar] = useState(false);
-  const [utilizador, setUtilizador] = useState(false);
+  // const [utilizador, setUtilizador] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenImage, setIsOpenImage] = useState(false);
+
   const [uploadNodes, setUploadNodes] = useState(() => {
     if (typeof (localStorage) !== 'undefined') {
       if (localStorage.getItem("nodes") !== null) {
@@ -57,6 +60,7 @@ const App = () => {
           cancelar={() => { setCancelar(!cancelar) }}
           codigo={() => {/* setCodigo(!codigo) */ setIsOpen(true) }}
           // utilizador={() => { logout() }}
+          image={() => { setIsOpenImage(true) }}
         />
       </div>
       <ReactFlowProvider>
@@ -64,19 +68,25 @@ const App = () => {
         {/* <strong style={{ height: "100px" }}>Div 1</strong> */}
         {/* <Sidebar /> */}
         {/* </div > */}
+
         <div style={{ width: "100%", height: "95%", float: "right" }}>
           <div style={{ backgroundColor: "white", width: "100%", height: "80%", float: "right" }}>
-            {/* <strong style={{ height: "200px" }}>Div 2</strong> */}
-            <Flowchart uploadNodes={uploadNodes} uploadEdges={uploadEdges} nodes={handleNode} edges={handleEdge} />
+            <Flowchart
+              uploadNodes={uploadNodes}
+              uploadEdges={uploadEdges}
+              nodes={handleNode}
+              edges={handleEdge}
+              image={isOpenImage}
+            />
           </div>
           <div style={{ backgroundColor: "white", width: "100%", height: "20%", float: "right", }}>
-            {/* <strong style={{ height: "100%" }}>Div 3</strong> */}
             <Termina nodes={nodes} edges={edges} clique={clique} cancelar={cancelar} />
           </div >
         </div >
       </ReactFlowProvider>
       <div style={{ clear: "both" }}></div>
       <Code open={isOpen} isOpen={(vl) => { setIsOpen(vl); }} codigo={result(nodes, edges, "start")} />
+      <Image open={isOpenImage} isOpen={(vl) => { setIsOpenImage(vl); }}/>
     </div >
   );
 }

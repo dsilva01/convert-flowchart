@@ -55,6 +55,7 @@ export const Flowchart = (props) => {
   const [show2, setShow2] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
+
   const [type, setType] = useState("");
   const [contextMenuElement, setContextMenuElement] = useState({ data: { value: "" } });
   const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
@@ -62,7 +63,7 @@ export const Flowchart = (props) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [edge, setEdge] = useState(null);
 
-  const transform = useStore((store) => store.connectionPosition);
+  // const transform = useStore((store) => store.connectionPosition);
 
   useEffect(() => {
     props.nodes(nodes);
@@ -90,18 +91,24 @@ export const Flowchart = (props) => {
       return vl2;
     });
   }, [nodes, edges]);
+
   useEffect(() => { setNodes(props.uploadNodes); setEdges(props.uploadEdges) }, [props.uploadNodes, props.uploadEdges]);
+
+  useEffect(() => {
+    if (reactFlowInstance) {
+      reactFlowInstance.fitView({ padding: 0.1, includeHiddenNodes: false });
+    }
+  }, [props.image]);
 
   const handleClick = () => { setShow(false); document.removeEventListener("click", handleClick) };
 
-  const onInit = (_reactFlowInstance) => setReactFlowInstance(_reactFlowInstance);
-  const onElementClick = (event, element) => {
-    if (isEdge(element)) {
-      setIsOpen2(true);
-      setEdge(element);
-      // console.log(element);
-    }
+  const onInit = (_reactFlowInstance) => {
+    // _reactFlowInstance.fitView({ padding: 0.1, includeHiddenNodes: false });
+    // _reactFlowInstance.zoomIn({ duration: 1000 });
+    console.log("🚀 ~ file: Flowchart.js ~ line 99 ~ onInit ~ _reactFlowInstance", _reactFlowInstance);
+    setReactFlowInstance(_reactFlowInstance);
   };
+ 
   const onEdgeClick = (event, edge) => {
   console.log("🚀 ~ file: Flowchart.js ~ line 106 ~ onEdgeClick ~ event", event)
     setPosition({ x: event.clientX - 70, y: event.clientY - 50 });
@@ -467,12 +474,6 @@ export const Flowchart = (props) => {
     }
   }
 
-  const onNodesDelete = (n) => {
-    if (n.id === '1' || n.id === '3') {
-      
-      // setEdges(edges.filter((edge) => edge.id !== e.id));
-    }
-  }
 
   return (
     <div className="col" ref={reactFlowWrapper} style={{ height: '100%', width: '100%' }}>
