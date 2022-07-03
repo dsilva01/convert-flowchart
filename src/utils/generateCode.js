@@ -84,7 +84,7 @@ const execute2 = async (item, dados, ligacoes, da) => {
       }
     } else if (item.type === 'entrada') {
       if (item.data.type === "string") {
-        ordem = `${ordem}String ${item.data.value} = '';\n`;
+        ordem = `${ordem}String ${item.data.value} = "";\n`;
       }else if (item.data.type === "int") {
         ordem = `${ordem}int ${item.data.value} = 0;\n`;
       }else if (item.data.type === "float") {

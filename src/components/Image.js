@@ -60,7 +60,7 @@ export const Image = (props) => {
     // dn.href = `data:image/png,${canvas.toDataURL('image/png')}`
     // dn.href = `data:${canvas.toDataURL('image/png')}`
     dn.href = canvas2.toDataURL('image/png')
-      dn.download = `png ${Date.now()}`;
+      dn.download = `fluxograma ${Date.now()}`;
       dn.click();
   };
 
