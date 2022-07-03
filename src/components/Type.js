@@ -24,22 +24,22 @@ export const Type = (props) => {
       <ModalBody>
         <div>
           <button type="button" className="entrada" onClick={e => onTrigger(e, 'entrada')}>
-            <strong>Entrada</strong>
+            <strong>Intput</strong>
           </button>
           <button type="button" className="saida" onClick={e => onTrigger(e, 'saida')}>
-            <strong>Saida</strong>
+            <strong>Output</strong>
           </button>
           <button type="button" className="processo" onClick={e => onTrigger(e, 'processo')}>
-            <strong>Processo</strong>
+            <strong>Process</strong>
           </button>
           <button type="button" className="condicao" onClick={e => onTrigger(e, 'condicao')}>
             <div>
-            <strong>Condição</strong>
+            <strong>Decision</strong>
             </div>
           </button>
           <button type="button" className="condicao" onClick={e => onTrigger(e, 'repiticao')}>
             <div>
-            <strong>Repitição</strong>
+            <strong>Decision (Loop)</strong>
             </div>
           </button>
         </div>

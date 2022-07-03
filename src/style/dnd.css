@@ -99,9 +99,8 @@
 .condicao div {
   width: 60px;
 	height: 60px;
-  padding-top: 16px;
-  /* margin-bottom: 6px; */
-  /* margin-left: 12px; */
+  padding-top: 14px;
+  padding-right: 6px;
   text-align: center;
   transform:rotate(-45deg);
 }

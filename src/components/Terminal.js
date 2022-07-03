@@ -53,7 +53,7 @@ export const Termina = (props) => {
         if (loopCounter >= maxLoopIterations) {
           // console.log('Loop counter exceeded max iterations');
           prompt();
-          term.write('Numeros de iterações excedidas');
+          term.write('Interation Limit Exceeded');
           pp = "end";
           break;
         }
@@ -64,7 +64,7 @@ export const Termina = (props) => {
     }
     prompt();
     prompt();
-    term.write('Fim da execucao');
+    term.write('End');
   }
 
   const execute = async (item, dados, ligacoes) => {

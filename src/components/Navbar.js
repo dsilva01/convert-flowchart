@@ -60,17 +60,16 @@ export const Navbar = (props) => {
   return (
 
     <div className="d-flex justify-content-between">
-      <div className='text-primary'>
-        <img src={"/logo.png"} alt="logo" style={{ width: "40px", height: "40px" }} />
+      <div className='text-primary px-2'>
         <strong>
-        Conversor de Fluxogramas
+        Flowchart Convert
         </strong>
       </div>
       <div>
         <Nav variant="pills" activeKey="1">
-          <NavDropdown title="Ficheiro" id="nav-dropdown">
+          <NavDropdown title="File" id="nav-dropdown">
             <NavDropdown.Item onClick={() => { handleClean() }}>
-              Novo
+              New
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item onClick={() => { handleClick() }}>
@@ -82,23 +81,23 @@ export const Navbar = (props) => {
               </div>
             </NavDropdown.Item>
             <NavDropdown.Item onClick={() => { handleImage() }}>
-              PNG
+              Export an image
             </NavDropdown.Item>
             <input id="upload_fl" type="file" hidden onChange={(e) => { handleChange(e) }} />
           </NavDropdown>
           <Nav.Item>
             <Nav.Link>
-              <span onClick={() => props.executar(true)}>Executar</span>
+              <span onClick={() => props.executar(true)}>Start</span>
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link>
-              <span onClick={() => props.cancelar(true)}>Cancelar/Limpar</span>
+              <span onClick={() => props.cancelar(true)}>Stop/Clear</span>
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link>
-              <span onClick={() => props.codigo(true)}>Codigo</span>
+              <span onClick={() => props.codigo(true)}>Code in Java</span>
             </Nav.Link>
           </Nav.Item>
         </Nav>

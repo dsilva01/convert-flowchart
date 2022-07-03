@@ -3,7 +3,7 @@ module.exports = [
     "id": "start",
     "type": "input",
     "data": {
-        "label": "Inicio"
+        "label": "Start"
     },
     "position": {
         "x": 250,
@@ -15,7 +15,7 @@ module.exports = [
     "id": "end",
     "type": "output",
     "data": {
-        "label": "Fim"
+        "label": "End"
     },
     "position": {
         "x": 250,
