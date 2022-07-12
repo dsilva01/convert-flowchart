@@ -10,7 +10,6 @@ export const Detail = (props) => {
 
   const onTrigger = (event, type) => {
     event.preventDefault();
-    // console.log(event);
     props.type(type);
     hideModal();
   }
@@ -50,8 +49,6 @@ export const Detail = (props) => {
                 </div>
               </section>
             </li>
-            {/* <li className="dropdown-item" style={{cursor: "pointer"}}>Copiar</li>
-            <li className="dropdown-item" style={{cursor: "pointer"}}>Colar</li> */}
           </ul>
         </div>
       );
@@ -88,8 +85,6 @@ export const Detail = (props) => {
                     </div>
                   </section>
             </li>
-            {/* <li className="dropdown-item" style={{cursor: "pointer"}}>Copiar</li>
-            <li className="dropdown-item" style={{cursor: "pointer"}}>Colar</li> */}
           </ul>
         </div>
       );
