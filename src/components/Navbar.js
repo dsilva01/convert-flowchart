@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { FaGithub } from 'react-icons/fa';
 // import html2canvas from 'html2canvas';
 
 import initialNodes from "../utils/nodes";
@@ -60,10 +61,15 @@ export const Navbar = (props) => {
   return (
 
     <div className="d-flex justify-content-between">
-      <div className='text-primary px-2'>
+      <div className='text-primary px-2 d-flex align-items-center gap-2'>
+        <strong className='mr-20'>
+        <a href="https://github.com/dsilva01/convert-flowchart" className="text-decoration-none" target="blank"><FaGithub size={24}/></a>
+        </strong>
+        <a href="https://github.com/dsilva01/convert-flowchart" className="text-decoration-none" target="blank">
         <strong>
         Flowchart Convert
         </strong>
+        </a>
       </div>
       <div>
         <Nav variant="pills" activeKey="1">
